@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<!-- saved from url=(0058)file:///Users/alantower/Downloads/aurora_unique_v26_1.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html><head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aurora Unique - Tastes of Eternity</title>
 <style>
@@ -71,6 +69,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000;}
     <div id="begin-main">Aurora Unique</div>
     <div id="begin-duration">3 - 17</div>
     <div id="begin-btn">Enter the Field</div>
+  <div id="save-btn" onclick="saveFile()" style="margin-top:18px;color:rgba(255,255,255,0.35);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;font-family:Georgia,serif;cursor:pointer;border:1px solid rgba(255,255,255,0.15);padding:9px 28px;transition:all 0.6s;">Download File</div>
   </div>
   <div id="replay-block">
     <button id="replay-btn" onclick="replayAll()">Experience Again</button>
@@ -586,6 +585,12 @@ document.getElementById('snd').addEventListener('ended',function(){
   }
 });
 
+function saveFile(){
+  var blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='aurora_unique_v26.html';
+  a.click();}
 function startAll(){
   var begin=document.getElementById('begin');
   setupAudio();
